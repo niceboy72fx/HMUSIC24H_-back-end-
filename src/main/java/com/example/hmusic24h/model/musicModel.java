@@ -1,7 +1,9 @@
 package com.example.hmusic24h.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.stereotype.Controller;
 
 import javax.persistence.Column;
@@ -14,24 +16,26 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="music_data")
+@Getter
+@Setter
 public class musicModel {
     @Id
-    @Column(name="Id")
+    @Column(name="id", columnDefinition = "BIGINT")
     private long Id;
-    @Column(name = "MusicName")
+    @Column(name = "music_name", columnDefinition = "VARCHAR(255)")
     private String musicName;
-    @Column(name = "AuthorPath")
+    @Column(name = "author_name", columnDefinition = "VARCHAR(255)")
     private String authorPath;
-    @Column(name = "FilePath")
+    @Column(name = "file_path", columnDefinition = "VARCHAR(255)")
     private String filePath;
-    @Column(name = "ImagePath")
+    @Column(name = "image_path", columnDefinition = "VARCHAR(255)")
     private String imagePath;
-    @Column(name = "Years")
+    @Column(name = "years", columnDefinition = "VARCHAR(255)")
     private String year;
-    @Column(name = "MusicType")
+    @Column(name = "music_type", columnDefinition = "VARCHAR(255)")
     private String musicType;
-    @Column(name = "Country")
+    @Column(name = "country", columnDefinition = "VARCHAR(255)")
     private String country;
-    @Column(name = "CountListenner")
+    @Column(name = "count_listenner", columnDefinition = "BIGINT")
     private long countListenner;
 }
