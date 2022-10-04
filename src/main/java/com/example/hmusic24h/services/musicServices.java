@@ -17,26 +17,21 @@ public class musicServices  {
     @Autowired
     private musicRespository musicRespo;
 
-//    public musicRespository(musicRespository msR);
-//    {
-//        this.musicRespo = msR;
-//    }
 
     public Iterable <musicModel> musicCountry(String nameCountry){
-       Iterable<musicModel> models = musicRespo.listCountryMusic(Collections.singleton(nameCountry));
+       Iterable<musicModel> models = musicRespo.listCountryMusic(nameCountry);
        return models;
     }
 
 
-    public List <musicModel> findMusicByName (List <String> NameMusic){
+    public List <musicModel> findMusicByName (String NameMusic){
         System.out.println("test");
         List<musicModel> model = musicRespo.listSearchMusic(NameMusic);
-
         return model;
     }
 
     public Iterable<musicModel> getAllMusic () {
-        Iterable<musicModel> model =  musicRespo.findAll();
+        Iterable<musicModel> model =  musicRespo.AllListStudent();
         return  model;
     }
 }

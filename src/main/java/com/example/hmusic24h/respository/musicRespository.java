@@ -10,12 +10,13 @@ import java.util.List;
 
 @Repository
 public interface musicRespository extends JpaRepository<musicModel,Long> {
-    @Query("Select p from musicModel p where p.country in :country")
-    Iterable<musicModel> listCountryMusic(@Param("country") Iterable<String> country);
+    @Query("Select p from musicModel p where p.country LIKE %:country")
+    Iterable<musicModel> listCountryMusic(@Param("country") String country);
 
-    @Query ("Select p from musicModel p where p.musicName LIKE :musicName ")
-    List<musicModel> listSearchMusic (@Param("musicName") List<String> musicName);
+    @Query ("Select p from musicModel p where p.musicName LIKE %:musicName ")
+    List<musicModel> listSearchMusic (@Param("musicName") String musicName);
 
-
+    @Query("Select e from musicModel e")
+    List<musicModel> AllListStudent();
 
 }
