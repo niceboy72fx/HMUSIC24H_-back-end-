@@ -44,10 +44,9 @@ public class musicController {
    // tim kiem nhac
     @GetMapping("/search")
     public ResponseEntity<musicRespond> searchMusic (@RequestParam("musicName") String nameMusic) {
-
         List<musicModel> MusicData = services.findMusicByName(nameMusic);
-        if (MusicData == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+        if (MusicData.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.OK).body(
                     new musicRespond("404", "Something is error !!", MusicData)
             );
         } else {
@@ -83,10 +82,11 @@ public class musicController {
         );
     }
 //-------------------------------------------------------------------------------------------------
-    // dem so ng yeu thich
-//    @PostMapping("/counting")
+    // dem so ng nghe
+//    @PutMapping("/counting")
 //    public ResponseEntity<musicRespond> counting (@RequestParam("count") long counts){
 //
 //    }
-
+    // tim 50 bai hat nghe nhieu nhat
+     //@GetMapping
  }
